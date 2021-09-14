@@ -19,6 +19,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install git
 sudo apt install vim
+sudo apt install openvpn
 
 git clone https://github.com/groundfoundation/myceli.git ~
 mkdir /opt/myceli
@@ -26,7 +27,8 @@ Copy ~/myceli/nebula_build/linux_amd64/nebula /opt/myceli
 Copy ca.crt /opt/myceli
 copy myceli.* /opt/myceli
 copy config.yaml /opt/myceli
-/opt/myceli/nebula
+cd /opt/myceli
+sudo ./nebula -config ./config.yaml
 
 
 Needed for Lighthouse:
