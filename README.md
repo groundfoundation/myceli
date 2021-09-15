@@ -25,14 +25,27 @@ git clone https://github.com/groundfoundation/myceli.git ~
 mkdir /opt/myceli
 Copy ~/myceli/nebula_build/linux_amd64/nebula /opt/myceli 
 Copy ca.crt /opt/myceli
-copy myceli.* /opt/myceli
+copy myceli.crt /opt/myceli
+copy myceli.key /opt/myceli
 copy config.yaml /opt/myceli
 cd /opt/myceli
-sudo ./nebula -config ./config.yaml
-
+to test:
+	sudo ./nebula -config ./config.yaml
+To set up service:
+copy myceli.service /lib/systemd/system/
+sudo chmod 644 /lib/systemd/system/myceli.service
+sudo systemctl daemon-reload
+sudo systemctl enable myceli.service
 
 Needed for Lighthouse:
 ufw allow from any proto udp to any port 4242
 
 Needed for Tethered Pi
+add lines to /etc/dhcpcd.conf
+interface usb0
+metric 100
+run 
+systemctl daemon-reload
+sudo service dhcpcd restart
+
 

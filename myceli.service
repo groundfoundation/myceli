@@ -1,0 +1,10 @@
+[Unit]
+ Description=Myceli Network Service
+ After=multi-user.target
+
+ [Service]
+ Type=idle
+ ExecStart=/opt/myceli/nebula -config /opt/myceli/config.yaml > /home/pi/myceli.log 2>&1
+
+ [Install]
+ WantedBy=multi-user.target

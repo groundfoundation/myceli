@@ -2,9 +2,9 @@ pki:
   # every node needs a copy of the CA certificate,
   # and its own certificate and key, ONLY.
   #
-  ca: ca.crt
-  cert: myceli.crt
-  key: myceli.key
+  ca: /opt/myceli/ca.crt
+  cert: /opt/myceli/myceli.crt
+  key: /opt/myceli/myceli.key
 
 static_host_map:
  # how to find one or more lighthouse nodes
